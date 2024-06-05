@@ -1,0 +1,31 @@
+ps -----shows process
+ps -ef ---------detail info of process
+pidof process name---------shows process id of process
+pkill processname
+kill pidnumber-------kill perticular process
+top ---------shows top running processes
+top -H -p process_number
+kill -15 process_number (graceful killing)
+pkill -u username
+pgrep -l  -u  username
+pstree -p  username
+top: dispaly a dynamic real-time view of all running processs
+ps aux - all(a) user(u) process runing(x) in every terminal
+ps -U root : process snap running by user root
+ps -C systemd: print only the process id
+
+controlling services and daemon
+systemctl list-units --type=service-------no. of services is running in my devices
+systemctl status sshd ------shows status.
+systemctl disabled sshd
+systemctl enabled sshd
+systemctl start sshd
+systemctl stop sshd
+systemctl is-disabled sshd
+systemctl is-enabled sshd
+systemctl mask sshd
+systemctl unmask sshd
+systemctl reload sshd   -----------------sshd service will reload pid will be same
+systemctl restart sshd --------------- sshd service will restart pid will different
+cat /etc/motd --------- massage of the day, massage will prompt on screen at the time of login
+cat /etc/ssh/sshd_config -----------------------------configuration file

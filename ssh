@@ -1,0 +1,6 @@
+ssh= secure shell
+# ssh-keygen------------key has generated in .ssh/id-rsa.pub
+~/.ssh/authorized_key------remote server saves key here	
+# ssh-copy-id sereverb \\ it saves key in serverb's root home directory in 'authorized_key'
+etc/ssh/sshd_config \\ main Configuration  File to Enable Disable key base, password base Authentication 
+# netstat -antlp |grep 22

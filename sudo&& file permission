@@ -1,0 +1,13 @@
+sudo privileges
+vi /etc/sudoers
+line 100 - student ALL=(ALL)  ALL
+login to student user ---> su - student
+
+usermod –help (used to modify a user's login information)
+usermod -c "Admin user" purohit(-c, --comment)
+
+chmod --> to change permission
+chmod 551 hp
+chown --> to chang owner
+
+chgrp --> to change group 

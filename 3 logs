@@ -1,0 +1,23 @@
+Logs
+/var/log   every log file should go inside /var/log
+Deamon – rsyslogd
+Earlier daemon – syslogd
+Systemd-journald   viewing log easily  jouranlctl 
+Systemctl status rsyslog
+Yum install httpd –
+Cd /var/log/httpd/  \\ log of Application store 
+/etc/logrotate.conf file
+Customize the logs file
+Journalctl
+Journalcl –n 7  to see last logs
+Journalclt –f  to real time monitoring the service.
+Journalctl –p err  to see the error massage
+Journalctl –p info  to info
+journalctl -p warning  to get the warning massage
+Journalctl	--since “-1 hour”
+journalctl --since "-5 min"
+Journalctl –o verbose
+To see logs with searching PID
+journalctl _PID=5024
+journalctl _SYSTEMD_UNIT=httpd.service   
+systemctl restart systemd-journald  

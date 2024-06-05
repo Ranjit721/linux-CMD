@@ -10,3 +10,15 @@ nmcli connection down con-name
 nmcli connection up con-name
 hostname - display the machin hostname
 hostname -d --> display the domain name the machin belong to
+hostname -f --> display fully qualified host and domain name
+hostname -i --> display the ip address of current machin
+ping`- Test the network connection 
+netstat - Network connection routing table
+ifconfig - getting network configuration 
+ip address show - you will see the same info.
+lan card info - lspci |grep -i ethernet
+nslookup - Query DNS lookup name
+telnet - conmmunicate with other hostname
+traceroute - outing steps that packate take to get network hosts.
+copy dir from source system to dest system
+scp -r boot root@master:/tmp

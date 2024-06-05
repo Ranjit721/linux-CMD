@@ -1,0 +1,12 @@
+Networking
+to check lan card
+ifconfig -a
+ethtool --> to more info about LAN CARD
+nmtui
+/etc/systemctl/network-scrip/ifcfg-ens33
+nmcli connection show - - to check the profile 
+nmcli connection show --active   \\ to check active connection
+nmcli connection down con-name
+nmcli connection up con-name
+hostname - display the machin hostname
+hostname -d --> display the domain name the machin belong to

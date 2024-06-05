@@ -1,0 +1,43 @@
+Basic Commands
+hostnamectl set-hostname linuxbox --> to change hostname
+ls -l --> long list
+ls -al --> to see hidden files
+rm filename 
+rmdir dirname
+tree --> tree format structure of dir
+yum install pkgname(tree)  --> to install pkg 
+alias cls=clear 
+touch 1 2 3 4 5 6 7 8 9 10 --> create empty file
+man pwd --> info 
+lscpu --> to check cpu info
+uptime --> load average   (5min/10min/15min)
+w / who --> userlogin info
+ whoami  --> current usr info
+/bin --> normal user
+/sbin --> superuser
+which reboot
+whereis pwd
+pwd ; ls ; w ; who
+pwd && ls && w && who
+rm -rf *  ------> Never use
+echo $? --> (0 - right command 127 - wrong command)
+cat /proc/cpuinfo  --> cpuinfo
+cat /proc/meminfo  --> memory info
+cat /proc/swaps  --> swap info
+dmidecode -t product
+dmidecode  -> it will provide you all details - cpu/memory/pci slots/bios
+last ---> it will provide you, reboot, shutdown server history
+last reboot
+last shutdow
+useradd rahul
+password Rahul
+#userdel pankaj  --> it wont delete user's home dir
+#userdel -r pankaj  --> it will delete user's home dir
+
+groupadd HR  --> create group
+groupdel HR --> delete group
+groups pankaj
+usermod -aG HR pankaj ---> Secondary group
+usermod -g sales john  --> Primary group
+su username ---> current location 
+su - username   --> it will take login into user's home dir 

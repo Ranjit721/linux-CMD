@@ -1,17 +1,45 @@
 Networking
 to check lan card
-ifconfig -a
+ip a  //check ip
+ifconfig -a 
 ethtool --> to more info about LAN CARD
-nmtui
-/etc/systemctl/network-scrip/ifcfg-ens33
+ethtool ens224
+
+---------------------------------------------------------------------------------------------
+nmtui   //graphic change ip and network card
+
+------------------------------------------------------------------------------------------------
+/etc/systemctl/network-scrip/ifcfg-ens33  // configure a network interface manually in
+
+/etc/sysconfig/network-scripts/readme-ifcfg-rh.txt  //centos network file path 
+
+To set a static IP for your network, you need to change the BOOTPROTO line to have the value "static". Also, modify the
+ONBOOT option to "yes" to enable the network when starting the system.
+BOOTPROTO = yes (static)
+#cd /etc/sysconfig/network-scripts/
+sudo nano ifcfg-enp0s3
+
+BOOTPROTO=static
+ONBOOT=yes
+IPADDR=192.168.1.100
+NETMASK=255.255.255.0
+GATEWAY=192.168.1.1
+DNS1=8.8.8.8
+DNS2=8.8.4.4
+
+--------------------------------------------------------------------------------------------------
+nmcli d \\
 nmcli connection show - - to check the profile 
 nmcli connection show --active   \\ to check active connection
 nmcli connection down con-name
 nmcli connection up con-name
+---------------------------------------------------------------------------------------------------
 hostname - display the machin hostname
 hostname -d --> display the domain name the machin belong to
 hostname -f --> display fully qualified host and domain name
 hostname -i --> display the ip address of current machin
+
+-------------------------------------------------------------------------------------------------------
 ping`- Test the network connection 
 netstat - Network connection routing table
 ifconfig - getting network configuration 
@@ -22,3 +50,7 @@ telnet - conmmunicate with other hostname
 traceroute - outing steps that packate take to get network hosts.
 copy dir from source system to dest system
 scp -r boot root@master:/tmp
+
+
+sudo systemctl restart NetworkManager
+

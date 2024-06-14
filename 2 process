@@ -1,3 +1,39 @@
+In Linux, a process is an instance of a running program. When a program is executed, the operating system creates a process to run the program. 
+Each process has a unique Process ID (PID) and is associated with various resources, such as memory, CPU time, file descriptors, and more. Processes are fundamental 
+to the operating system's management of running tasks and can be managed and monitored using various commands and tools.
+
+Key Aspects of Linux Processes
+Creation and Termination:
+
+Creation: Processes can be created using system calls like fork(), which creates a new process by duplicating the calling process. The new process is called the child process, and the original process is the parent process.
+Termination: Processes can terminate using system calls like exit(). A process can also be terminated by other processes using signals (e.g., kill command).
+Types of Processes:
+
+Foreground Processes: These are processes that run interactively, typically initiated by a user from the command line.
+
+Background Processes: These run without user interaction and typically perform tasks like system maintenance or services.
+Daemon Processes: Special types of background processes that run continuously and perform system-wide tasks (e.g., httpd for a web server).
+Process States:
+
+Running: The process is either running on the CPU or waiting to be scheduled.
+Sleeping: The process is waiting for some event to complete (e.g., I/O operations).
+Stopped: The process has been stopped, usually by receiving a signal.
+Zombie: The process has terminated, but its parent has not yet read its exit status.
+Process Management Commands:
+
+ps: Displays information about active processes.
+top: Provides a dynamic real-time view of running processes.
+kill: Sends a signal to a process, typically to terminate it.
+bg and fg: Manage background and foreground processes.
+nice and renice: Adjust the priority of processes.
+Process Hierarchy and PID:
+
+Each process in Linux has a unique PID.
+Processes are organized in a hierarchical structure where each process has a parent process.
+The init (or systemd) process is the first process started by the kernel at boot time and has a PID of 1.
+Example Commands
+View all processes:
+
 ps -----shows process
 ps -ef ---------detail info of process
 pidof process name---------shows process id of process

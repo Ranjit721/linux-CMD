@@ -1,0 +1,128 @@
+useradd  ranjit
+passwd ranjit
+
+1) /etc/passwd \\user info
+
+ranjit:x:1000:1000::/home/ranjit:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+name:shadow file contain password :uid:gid:comment:home path:shell
+
+
+2) /etc/shadow  \\encripted passwd
+ranjit:!!:19882:0:99999:7:::
+!! \\this endicate password not set 
+ranjit:$6$Ejio5yLOddeFhPCQ$U5a4zTLxGqWfsvDEJ3l8Cp0WrF7is8Nh/Fa60XeAg4qdNltfudRRBV.r.IJscz6ADfm9tbU97SVb5fqQvGPds0:19882:0:99999:7:::
+name : encripted passwd: no.of day from 1 jan 1970:Minimum number of days between password change:Maximum number of days between password change:Number of days of warning before password expires
+
+3) /etc/group
+ranjit:x:1000:
+
+
+4) /etc/skel  //contain scripts --> .bash_logout  .bash_profile  .bashrc
+/home/ranjit \\ .bash_logout  .bash_profile  .bashrc --.this file will copy when user create
+.bash_logout  \\for logout 
+.bash_profile  .bashrc    \\for login) 
+
+5) Chage -l rahul  \\Check user policy 
+
+Options:
+  -d, --lastday LAST_DAY        set date of last password change to LAST_DAY
+  -E, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+  -h, --help                    display this help message and exit
+  -i, --iso8601                 use YYYY-MM-DD when printing dates
+  -I, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -l, --list                    show account aging information
+  -m, --mindays MIN_DAYS        set minimum number of days before password
+                                change to MIN_DAYS
+  -M, --maxdays MAX_DAYS        set maximum number of days before password
+                                change to MAX_DAYS
+  -R, --root CHROOT_DIR         directory to chroot into
+  -W, --warndays WARN_DAYS      set expiration warning days to WARN_DAYS
+
+
+cat /etc/login.defs \\user police for all user newly created ,Main Configuration file 
+0 -999 reserved system account 
+/sbin/nologin \\shell is no login
+
+
+cat /etc/default/useradd  -->home directry,default shell,user police > configure file
+----------------------------------------------------------------------------------
+
+
+
+id pankaj --> to get uid and group id
+grep pankaj /etc/group
+grep pankaj /etc/passwd
+groups pankaj
+groupadd sales
+groupadd marketing
+groupadd HR  --> create group
+groupdel HR --> delete group
+groups pankaj
+usermod -aG HR pankaj ---> Secondary group
+usermod -g sales john  --> Primary group
+su username ---> current location 
+su - username   --> it will take login into user's home dir 
+
+sudo privileges
+vi /etc/sudoers
+line 100 - student ALL=(ALL)  ALL
+login to student user ---> su - student
+sudo su -    
+insert student password
+you will become root user
+
+#userdel pankaj  --> it wont delete user's home dir
+#userdel -r pankaj  --> it will delete user's home dir
+
+to create user without using useradd command
+vi /etc/passwd
+krishna:x:1004:1011::/home/krishna:/bin/bash
+pwck # manually password file updated
+pwconv # shadow file updated
+grpck # group file updated
+cd /home
+mkdir krishna
+
+
+useradd -d /opt/prashant -c "backup user" -s /sbin/nologin -m prashant
+
+usermod --help
+usermod -c "Admin user" purohit
+usermod -d /tmp/purohit purohit
+usermod -s /sbin/nologin purohit
+
+passwd -S purohit --> check password status
+passwd -d purohit --> delete user password
+passwd -l purohit --> lock user password
+passwd -u purohit --> unlock user password
+
+umask 0022 --
+chmod --> to change permission
+chown --> to chang owner
+chgrp --> to change group 
+chmod 551 hp
+chmod u+x,g+x,o+x hp
+chmod u-r,g-r hp
+chmod u-x,g-x,o-x hp
+chmod u+rwx,g+rwx,o+rwx hp
+chmod u-x,g-x,o-x hp
+chmod u+rx,g+rx,o+rx sales/
+chmod -R 777 sales/   --> Recurssivly changing permission
+chgrp groupname dirname
+useradd suman ; useradd rakesh ; useradd vijay
+usermod -aG sales suman rakesh vijay
+usermod -aG sales suman
+usermod -aG sales rakesh
+usermod -aG sales vijay
+chmod o-rwx sales
+gpasswd -d suman sales
+gpasswd -d rakesh sales
+vi /etc/group  --> remove the user from group
+pwck
+grpck
+pwconv
+
+
+

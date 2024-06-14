@@ -1,0 +1,63 @@
+umask 0022 --control permission of newly created files and directry
+file default permission is 644 if umask 0000 it will 666
+directry default permission is 755 if umask 0000 it will 777
+
+chmod --> to change permission
+chown --> to chang owner
+chgrp --> to change group 
+chmod 551 hp
+chmod u+x,g+x,o+x hp
+chmod u-r,g-r hp
+chmod u-x,g-x,o-x hp
+chmod u+rwx,g+rwx,o+rwx hp
+chmod u-x,g-x,o-x hp
+chmod u+rx,g+rx,o+rx sales/
+chmod -R 777 sales/   --> Recurssivly changing permission ,All File and Folder inside Directory
+chgrp groupname dirname --> Change group of File 
+useradd suman ; useradd rakesh ; useradd vijay
+usermod -aG sales suman rakesh vijay
+usermod -aG sales suman
+usermod -aG sales rakesh
+usermod -aG sales vijay
+chmod o-rwx sales
+gpasswd -d suman sales -->remove user from group
+gpasswd -d rakesh sales
+vi /etc/group  --> remove the user from group
+pwck
+grpck
+pwconv
+
+----------------------------------------------------------------------------------
+
+ACL ---> Access control List
+setfacl -m u:john:rwx /tmp/code/code.sh
+getfacl /tmp/code/code.sh  --> verification
+setfacl -x u:john /tmp/code
+
+----------------------------------------------------------------------------------
+stikybit - 1
+setuid - 4
+setgid - 2
+
+
+stickybit --> we can only apply on public dir
+chmod 1777 common
+chmod 0777 common
+chmod +t common
+chmod -t common 
+
+------------------------------------------------------------------------------------------
+chattr --> even root cannot modify the file
+
+chatter +i /etc/passwd
+chatter -i /etc/passwd
+lsattr /etc/passwd
+----i----- ----> applied chatter 
+
+------------------------------------------------------------------------------------------
+setuid --> only applied on commands - if you want to give root privileges to normal user 
+
+chmod 4777 /usr/sbin/fdisk
+chmod 0777 /usr/sbin/fdisk
+chmod u+s /usr/sbin/fdisk
+chmod u-s /usr/sbin/fdisk

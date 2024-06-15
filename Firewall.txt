@@ -1,0 +1,49 @@
+Install and Enable Your Firewall to Start at Boot
+
+sudo systemctl start httpd
+sudo systemctl status httpd
+
+Exploring the Defaults
+
+firewall-cmd --get-default-zone
+firewall-cmd --get-active-zones
+sudo firewall-cmd --list-all
+
+
+Exploring Alternative Zones
+firewall-cmd --get-zones
+sudo firewall-cmd --zone=home --list-all
+sudo firewall-cmd --list-all-zones | less
+
+
+Selecting Zones for your Interfaces
+sudo firewall-cmd --zone=home --change-interface=eth0
+firewall-cmd --get-active-zones
+
+
+Adjusting the Default Zone
+sudo firewall-cmd --set-default-zone=home
+
+
+Setting Rules for your Applications
+firewall-cmd --get-services
+
+
+sudo firewall-cmd --zone=public --add-service=http
+sudo firewall-cmd --zone=public --permanent --add-service=http \\add service
+sudo firewall-cmd --zone=public --permanent --list-services  \\list permanent services
+
+What If No Appropriate Service Is Available?
+Opening a Port for your Zones
+sudo firewall-cmd --zone=public --add-port=5000/tcp  \\open Port
+sudo firewall-cmd --zone=public --list-ports   \\Check Open Ports
+sudo firewall-cmd --zone=public --add-port=4990-4999/udp
+
+
+18.182
+20.119
+14.106
+18.239
+
+
+

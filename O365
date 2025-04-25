@@ -1,1 +1,7 @@
-connect-MsolService  -- Connect Powershell with O365
+connect-MsolService  \\ Connect Powershell with O365-login with username and Password
+Get-MsolUser \\ get info of Active User
+Remove-Msoluser -UserPrincipalName (User Principal Name) -Force  \\ Delete User
+Get-MsolUser -ReturnDeletedUsers \\Check Deleted Users
+Get-MsolUser -ReturnDeletedUsers | f1 *objectid*
+Restore-MsolUser - -ObjectID <ObjectID>  \\restore User
+Remove-Msoluser -UserPrincipalName (User Principal Name) -RemoveFromRecycleBin -Force 
